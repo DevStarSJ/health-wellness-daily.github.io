@@ -1,0 +1,55 @@
+title: Health & Wellness Daily
+description: Evidence-based guides for a healthier, happier life
+url: "https://health-wellness-daily.github.io"
+baseurl: ""
+author:
+  name: Health & Wellness Daily
+  email: contact@healthwellnessdaily.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+# Theme
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO
+twitter:
+  username: healthwellnessdaily
+  card: summary_large_image
+
+social:
+  name: Health & Wellness Daily
+  links:
+    - https://twitter.com/healthwellnessdaily
+
+# Google Analytics (add your tracking ID)
+google_analytics: 
+
+# Pagination
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Health & Wellness Daily"
+      comments: true
