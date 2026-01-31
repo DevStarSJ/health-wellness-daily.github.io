@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<div class="home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">🌿 {{ site.title }}</h1>
+      <p class="hero-subtitle">{{ site.description }}</p>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <h2 class="section-title">카테고리</h2>
+      <div class="categories-grid">
+        {% for cat in site.categories_list %}
+        <a href="{{ '/categories/' | relative_url }}#{{ cat.slug }}" class="category-card">
+          <span class="category-icon">{{ cat.icon }}</span>
+          <h3>{{ cat.display | default: cat.name }}</h3>
+          <p>{{ cat.description }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Posts -->
+  <section class="posts-section">
+    <div class="container">
+      <h2 class="section-title">최신 글</h2>
+      <div class="posts-grid">
+        {% for post in site.posts limit:9 %}
+        <article class="post-card">
+          {% if post.image %}
+          <div class="post-card-image" style="background-image: url('{{ post.image | relative_url }}');">
+          </div>
+          {% else %}
+          <div class="post-card-image post-card-image--placeholder">
+            <span>{{ post.categories[0] | default: '건강' }}</span>
+          </div>
+          {% endif %}
+          <div class="post-card-content">
+            <div class="post-card-meta">
+              {% if post.categories[0] %}
+              <span class="post-category">{{ post.categories[0] }}</span>
+              {% endif %}
+              <time datetime="{{ post.date | date_to_xmlschema }}">
+                {{ post.date | date: "%Y년 %m월 %d일" }}
+              </time>
+            </div>
+            <h3 class="post-card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+            <p class="post-card-excerpt">
+              {{ post.excerpt | strip_html | truncate: 100 }}
+            </p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      
+      {% if site.posts.size > 9 %}
+      <div class="posts-more">
+        <a href="{{ '/categories/' | relative_url }}" class="btn btn-outline">모든 글 보기 →</a>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {{ content }}
+</div>

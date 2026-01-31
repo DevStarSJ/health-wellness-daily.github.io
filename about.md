@@ -1,30 +1,37 @@
 ---
 layout: page
-title: About
+title: 소개
+description: Health & Wellness Daily에 대해 알아보세요
 permalink: /about/
 ---
 
-# About Health & Wellness Daily
+## 🌿 Health & Wellness Daily 소개
 
-Health & Wellness Daily is dedicated to providing reliable, evidence-based health information to help you live your best life.
+안녕하세요! **Health & Wellness Daily**에 오신 것을 환영합니다.
 
-## Our Approach
+우리는 **과학적 근거에 기반한 건강 정보**를 알기 쉽게 전달하는 것을 목표로 합니다. 복잡한 건강 정보를 누구나 이해하고 실천할 수 있도록 정리해 드립니다.
 
-We believe in:
+## 🎯 우리의 미션
 
-- **Science-first**: All our content is grounded in peer-reviewed research
-- **Practical advice**: Actionable tips you can implement today
-- **Holistic health**: Mind, body, and spirit working together
-- **Accessibility**: Clear, jargon-free explanations
+- **신뢰할 수 있는 정보**: 검증된 연구와 전문가 의견을 바탕으로 합니다
+- **실용적인 조언**: 일상에서 바로 적용할 수 있는 팁을 제공합니다
+- **균형 잡힌 시각**: 극단적인 주장보다 균형 잡힌 정보를 전달합니다
 
-## Our Team
+## 📚 다루는 주제
 
-Our content is created by health enthusiasts and reviewed by professionals. We stay current with the latest research to bring you accurate, up-to-date information.
+- **영양** 🥗: 건강한 식단, 영양소, 다이어트 정보
+- **운동** 💪: 효과적인 운동법, 홈트레이닝, 스트레칭
+- **정신건강** 🧠: 스트레스 관리, 명상, 마음 건강
+- **수면** 😴: 수면의 질 향상, 불면증 극복
+- **라이프스타일** 🌿: 건강한 생활 습관, 웰빙 팁
 
-## Contact Us
+## ⚠️ 주의사항
 
-Have questions or suggestions? We'd love to hear from you!
+본 블로그에서 제공하는 정보는 일반적인 건강 정보로서, **전문적인 의료 상담을 대체할 수 없습니다**. 
+건강에 관한 중요한 결정을 내리기 전에는 반드시 의료 전문가와 상담하시기 바랍니다.
 
----
+## 📮 연락처
 
-*Remember: Always consult with healthcare professionals before making significant changes to your health routine.*
+질문이나 제안이 있으시면 [연락처 페이지](/contact/)를 통해 알려주세요!
+
+건강하고 행복한 하루 되세요! 🌱

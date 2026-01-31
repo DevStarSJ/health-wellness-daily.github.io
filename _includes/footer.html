@@ -1,0 +1,35 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo-icon">🌿</span>
+        <span class="footer-title">{{ site.title }}</span>
+        <p class="footer-desc">{{ site.description }}</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>바로가기</h4>
+        <ul>
+          {% for item in site.navigation %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {% endfor %}
+          <li><a href="{{ '/privacy/' | relative_url }}">개인정보처리방침</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-categories">
+        <h4>카테고리</h4>
+        <ul>
+          {% for cat in site.categories_list limit:5 %}
+          <li><a href="{{ '/categories/' | relative_url }}#{{ cat.slug }}">{{ cat.icon }} {{ cat.display | default: cat.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+      <p class="footer-disclaimer">본 블로그의 정보는 참고용이며, 전문 의료 상담을 대체하지 않습니다.</p>
+    </div>
+  </div>
+</footer>

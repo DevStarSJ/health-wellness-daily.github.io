@@ -2,17 +2,22 @@ title: Health & Wellness Daily
 description: Evidence-based guides for a healthier, happier life
 url: "https://health-wellness-daily.github.io"
 baseurl: ""
+lang: ko
+
 author:
   name: Health & Wellness Daily
+  bio: "건강하고 행복한 삶을 위한 과학적 정보를 제공합니다."
   email: contact@healthwellnessdaily.com
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /:title/
+permalink: /:categories/:title/
 
-# Theme
-theme: minima
+# Sass
+sass:
+  style: compressed
+  sass_dir: _sass
 
 # Plugins
 plugins:
@@ -33,9 +38,49 @@ social:
 # Google Analytics (add your tracking ID)
 google_analytics: 
 
-# Pagination
-paginate: 10
-paginate_path: "/page/:num/"
+# Navigation
+navigation:
+  - title: 홈
+    url: /
+  - title: 카테고리
+    url: /categories/
+  - title: 소개
+    url: /about/
+  - title: 연락처
+    url: /contact/
+
+# Categories
+categories_list:
+  - name: nutrition
+    display: 영양 / Nutrition
+    slug: nutrition
+    icon: 🥗
+    description: 건강한 식단과 영양 정보
+  - name: fitness
+    display: 운동 / Fitness
+    slug: fitness
+    icon: 💪
+    description: 효과적인 운동 방법과 팁
+  - name: mental-health
+    display: 정신건강 / Mental Health
+    slug: mental-health
+    icon: 🧠
+    description: 마음 건강과 스트레스 관리
+  - name: sleep
+    display: 수면 / Sleep
+    slug: sleep
+    icon: 😴
+    description: 질 좋은 수면을 위한 가이드
+  - name: lifestyle
+    display: 라이프스타일 / Lifestyle
+    slug: lifestyle
+    icon: 🌿
+    description: 건강한 생활 습관
+  - name: supplements
+    display: 보충제 / Supplements
+    slug: supplements
+    icon: 💊
+    description: 영양 보충제 가이드
 
 # Exclude
 exclude:
@@ -43,6 +88,8 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - README.md
+  - LICENSE
 
 # Defaults
 defaults:
@@ -53,3 +100,9 @@ defaults:
       layout: "post"
       author: "Health & Wellness Daily"
       comments: true
+      toc: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"

@@ -1,0 +1,31 @@
+---
+layout: page
+title: 카테고리
+description: 주제별로 글을 찾아보세요
+permalink: /categories/
+---
+
+<div class="categories-page">
+  {% for cat in site.categories_list %}
+  <section id="{{ cat.slug }}" class="category-section">
+    <div class="category-header">
+      <span style="font-size: 1.5rem;">{{ cat.icon }}</span>
+      <h2>{{ cat.display | default: cat.name }}</h2>
+    </div>
+    
+    {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains cat.name" %}
+    {% if cat_posts.size > 0 %}
+    <div class="category-posts">
+      {% for post in cat_posts %}
+      <div class="category-post-item">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p style="color: var(--color-text-muted); padding: 1rem 0;">아직 글이 없습니다.</p>
+    {% endif %}
+  </section>
+  {% endfor %}
+</div>

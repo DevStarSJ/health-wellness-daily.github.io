@@ -1,0 +1,95 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="container">
+      <div class="post-meta">
+        {% if page.categories[0] %}
+        <a href="{{ '/categories/' | relative_url }}#{{ page.categories[0] | slugify }}" class="post-category-badge">
+          {{ page.categories[0] }}
+        </a>
+        {% endif %}
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ page.date | date: "%Y년 %m월 %d일" }}
+        </time>
+        {% if page.author %}
+        <span class="post-author" itemprop="author">{{ page.author }}</span>
+        {% endif %}
+      </div>
+      <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+      {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-layout container">
+    <!-- Sidebar / TOC -->
+    <aside class="post-sidebar">
+      {% if page.toc != false %}
+      <div class="toc-wrapper">
+        <h4 class="toc-title">📑 목차</h4>
+        <nav class="toc">
+          {% include toc.html html=content %}
+        </nav>
+      </div>
+      {% endif %}
+    </aside>
+
+    <!-- Main Content -->
+    <div class="post-content" itemprop="articleBody">
+      {{ content }}
+      
+      <!-- Tags -->
+      {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        <span class="tags-label">태그:</span>
+        {% for tag in page.tags %}
+        <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Post Navigation -->
+  <nav class="post-navigation">
+    <div class="container">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-prev">
+        <span class="post-nav-label">← 이전 글</span>
+        <span class="post-nav-title">{{ page.previous.title }}</span>
+      </a>
+      {% else %}
+      <div class="post-nav-link post-nav-empty"></div>
+      {% endif %}
+      
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-link post-nav-next">
+        <span class="post-nav-label">다음 글 →</span>
+        <span class="post-nav-title">{{ page.next.title }}</span>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <!-- Related Posts -->
+  {% assign related = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.categories contains page.categories[0]" | limit: 3 %}
+  {% if related.size > 0 %}
+  <section class="related-posts">
+    <div class="container">
+      <h3 class="related-title">관련 글</h3>
+      <div class="related-grid">
+        {% for post in related %}
+        <a href="{{ post.url | relative_url }}" class="related-card">
+          <h4>{{ post.title }}</h4>
+          <time>{{ post.date | date: "%Y.%m.%d" }}</time>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+</article>

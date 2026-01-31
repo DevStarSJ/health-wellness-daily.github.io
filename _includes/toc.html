@@ -1,0 +1,21 @@
+{% capture tocWorkspace %}
+  {% assign headings = include.html | split: '<h' %}
+  {% for heading in headings %}
+    {% if heading contains '">' %}
+      {% assign level = heading | slice: 0, 1 %}
+      {% if level == '2' or level == '3' %}
+        {% assign idStart = heading | split: 'id="' %}
+        {% if idStart.size > 1 %}
+          {% assign idAndRest = idStart[1] | split: '"' %}
+          {% assign headingId = idAndRest[0] %}
+          {% assign textStart = heading | split: '">' %}
+          {% assign textAndRest = textStart[1] | split: '</h' %}
+          {% assign headingText = textAndRest[0] | strip_html %}
+          <a href="#{{ headingId }}" class="toc-link toc-level-{{ level }}">{{ headingText }}</a>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{{ tocWorkspace }}
